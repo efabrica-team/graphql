@@ -1,0 +1,39 @@
+{
+    "name": "efabrica/graphql",
+    "type": "library",
+    "description": "GraphQL API server.",
+    "keywords": [
+        "php",
+        "package",
+        "graphql",
+        "api"
+    ],
+    "readme": "README.md",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Martin Petricko",
+            "email": "matopetricko@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4",
+        "webonyx/graphql-php": "^14.11"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Efabrica\\GraphQL\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

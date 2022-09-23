@@ -1,0 +1,23 @@
+{
+    "$schema": "https://raw.githubusercontent.com/infection/infection/0.26.6/resources/schema.json",
+    "source": {
+        "directories": [
+            "src"
+        ],
+        "excludes": [
+            "src/Schema/Custom/*"
+        ]
+    },
+    "logs": {
+        "html": "reports/infection.html"
+    },
+    "mutators": {
+        "@default": true,
+        "global-ignore": [
+            "Efabrica\\GraphQL\\Schema\\Custom\\*"
+        ],
+        "global-ignoreSourceCodeByRegex": [
+            "\\s+throw new [[:alpha:]]+\\s*\\(\\s*.+\\s*\\);"
+        ]
+    }
+}
