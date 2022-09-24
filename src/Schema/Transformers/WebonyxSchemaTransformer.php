@@ -5,6 +5,7 @@ namespace Efabrica\GraphQL\Schema\Transformers;
 use Efabrica\GraphQL\Exceptions\SchemaTransformerException;
 use Efabrica\GraphQL\Schema\Definition\Arguments\FieldArgument;
 use Efabrica\GraphQL\Schema\Definition\Fields\Field;
+use Efabrica\GraphQL\Schema\Definition\Fields\InputObjectField;
 use Efabrica\GraphQL\Schema\Definition\ResolveInfo;
 use Efabrica\GraphQL\Schema\Definition\Schema;
 use Efabrica\GraphQL\Schema\Definition\Types\EnumType;
@@ -45,10 +46,6 @@ final class WebonyxSchemaTransformer
         return new WebonyxSchema($schemaConfig);
     }
 
-    /**
-     * @return WebonyxType|WebonyxNullableType
-     * @throws SchemaTransformerException
-     */
     private function transformType(Type $type): WebonyxType
     {
         if (isset($this->types[$type->getName()])) {
@@ -143,10 +140,12 @@ final class WebonyxSchemaTransformer
             'original_field' => $field,
         ];
 
-        try {
-            $fieldResult['defaultValue'] = $field->getDefaultValue();
-        } catch (Throwable $e) {
-            //
+        if ($field instanceof InputObjectField) {
+            try {
+                $fieldResult['defaultValue'] = $field->getDefaultValue();
+            } catch (Throwable $e) {
+                //
+            }
         }
 
         if ($resolver = $field->getResolver()) {

@@ -4,7 +4,7 @@ namespace Efabrica\GraphQL\Schema\Definition;
 
 use Efabrica\GraphQL\Schema\Definition\Fields\Field;
 
-class ResolveInfo
+final class ResolveInfo
 {
     private Field $field;
 

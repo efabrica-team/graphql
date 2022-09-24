@@ -2,7 +2,6 @@
 
 namespace Efabrica\GraphQL\Helpers;
 
-use Efabrica\GraphQL\Schema\Definition\Types\Scalar\BooleanType;
 use Efabrica\GraphQL\Schema\Definition\Types\Scalar\FloatType;
 use Efabrica\GraphQL\Schema\Definition\Types\Scalar\IntType;
 use Efabrica\GraphQL\Schema\Definition\Types\Scalar\StringType;

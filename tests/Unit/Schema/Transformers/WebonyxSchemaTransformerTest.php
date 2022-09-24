@@ -6,6 +6,7 @@ use Efabrica\GraphQL\Exceptions\SchemaTransformerException;
 use Efabrica\GraphQL\Resolvers\ResolverInterface;
 use Efabrica\GraphQL\Schema\Definition\Arguments\FieldArgument;
 use Efabrica\GraphQL\Schema\Definition\Fields\Field;
+use Efabrica\GraphQL\Schema\Definition\Fields\InputObjectField;
 use Efabrica\GraphQL\Schema\Definition\ResolveInfo;
 use Efabrica\GraphQL\Schema\Definition\Schema;
 use Efabrica\GraphQL\Schema\Definition\Types\EnumType;
@@ -166,7 +167,7 @@ class WebonyxSchemaTransformerTest extends TestCase
                             ->setArguments([])
                             ->setMulti()
                             ->setNullable()
-                            ->setMultiItemNullable()
+                            ->setMultiItemNullable(),
                     ])
             );
 
@@ -187,7 +188,7 @@ class WebonyxSchemaTransformerTest extends TestCase
                             'ipsum' => [
                                 'type' => WebonyxType::nonNull(WebonyxType::string()),
                                 'args' => [
-                                    'dolor' => WebonyxType::id(),
+                                    'dolor' => WebonyxType::listOf(WebonyxType::id()),
                                 ],
                             ],
                         ],
@@ -198,12 +199,13 @@ class WebonyxSchemaTransformerTest extends TestCase
         $schema = (new Schema())
             ->setQuery(
                 (new ObjectType('lorem'))
-                    ->setFields([
+                    ->setFields(static fn() => [
                         (new Field('ipsum', new StringType()))
                             ->addArgument(
                                 (new FieldArgument('doris', new IntType()))
                                     ->setName('dolor')
                                     ->setType(new IDType())
+                                    ->setMulti()
                             ),
                     ])
             );
@@ -425,6 +427,7 @@ class WebonyxSchemaTransformerTest extends TestCase
                                             'fields' => [
                                                 'author' => [
                                                     'type' => WebonyxType::id(),
+                                                    'defaultValue' => 3,
                                                 ],
                                                 'popular' => [
                                                     'type' => WebonyxType::boolean(),
@@ -453,11 +456,12 @@ class WebonyxSchemaTransformerTest extends TestCase
                                     (new InputObjectType('StoryFiltersInput'))
                                         ->setDescription('Lorem Ipsum')
                                         ->setFields([
-                                            (new Field('author', new IDType()))
+                                            (new InputObjectField('author', new IDType()))
+                                                ->setNullable()
+                                                ->setDefaultValue(3),
+                                            (new InputObjectField('popular', new BooleanType()))
                                                 ->setNullable(),
-                                            (new Field('popular', new BooleanType()))
-                                                ->setNullable(),
-                                            (new Field('tags', new StringType()))
+                                            (new InputObjectField('tags', new StringType()))
                                                 ->setMulti()
                                                 ->setNullable()
                                                 ->setMultiItemNullable(),
