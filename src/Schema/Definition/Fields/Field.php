@@ -6,7 +6,6 @@ use Efabrica\GraphQL\Resolvers\ResolverInterface;
 use Efabrica\GraphQL\Schema\Definition\Arguments\FieldArgument;
 use Efabrica\GraphQL\Schema\Definition\HasSettigns;
 use Efabrica\GraphQL\Schema\Definition\Types\Type;
-use Error;
 
 class Field
 {

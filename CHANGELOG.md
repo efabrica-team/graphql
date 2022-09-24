@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 ### Added
-- Initialized package
+- Schema definition
+- Definition schema loader
+- Webonyx driver
+- Webonyx schema transformer
 
-[Unreleased]: https://git.efabrica.sk/libraries/graphql/compare/0.0.0...master
+[Unreleased]: https://github.com/efabrica-team/graphql/compare/0.0.0...main

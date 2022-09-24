@@ -4,9 +4,7 @@ namespace Efabrica\GraphQL\Drivers;
 
 use Efabrica\GraphQL\Schema\Loaders\SchemaLoaderInterface;
 use Efabrica\GraphQL\Schema\Transformers\WebonyxSchemaTransformer;
-use GraphQL\Error\DebugFlag;
 use GraphQL\GraphQL as WebonyxGraphQl;
-use GraphQL\Type\Schema;
 
 final class WebonyxDriver implements DriverInterface
 {
@@ -22,11 +20,9 @@ final class WebonyxDriver implements DriverInterface
 
     public function executeQuery(string $query): array
     {
-        return WebonyxGraphQl::executeQuery($this->getSchema(), $query)->toArray(DebugFlag::INCLUDE_DEBUG_MESSAGE);
-    }
-
-    private function getSchema(): Schema
-    {
-        return $this->schemaTransformer->handle($this->schemaLoader->getSchema());
+        return WebonyxGraphQl::executeQuery(
+            $this->schemaTransformer->handle($this->schemaLoader->getSchema()),
+            $query
+        )->toArray();
     }
 }

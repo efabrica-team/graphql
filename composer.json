@@ -9,7 +9,7 @@
         "api"
     ],
     "readme": "README.md",
-    "license": "proprietary",
+    "license": "MIT",
     "authors": [
         {
             "name": "Martin Petricko",
@@ -18,7 +18,7 @@
         }
     ],
     "require": {
-        "php": "^7.4",
+        "php": "^7.4|^8.0",
         "webonyx/graphql-php": "^14.11"
     },
     "require-dev": {

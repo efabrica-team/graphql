@@ -4,7 +4,7 @@ namespace Efabrica\GraphQL\Schema\Loaders;
 
 use Efabrica\GraphQL\Schema\Definition\Schema;
 
-class DefinitionSchemaLoader implements SchemaLoaderInterface
+final class DefinitionSchemaLoader implements SchemaLoaderInterface
 {
     /** @var Schema|callable */
     private $schema;
