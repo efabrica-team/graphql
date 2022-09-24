@@ -19,7 +19,7 @@ abstract class TypeWithFields extends Type
      */
     public function getFields(): array
     {
-        if (!$this->fieldsCallback || count($this->fields)) {
+        if ($this->fieldsCallback === null || count($this->fields)) {
             return $this->fields;
         }
 
