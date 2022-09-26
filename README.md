@@ -1,7 +1,8 @@
 # GraphQL (work in progress)
 
 This package is using [webonyx/graphql-php](https://github.com/webonyx/graphql-php) as GraphQL driver and is meant to be
-used as automatic schema definition loader.
+used as automatic schema definition loader. For better understandation please reffer
+to [efabrica/nette-graphql](https://github.com/efabrica-team/nette-graphql) implementation of this package.
 
 ## Installation
 
