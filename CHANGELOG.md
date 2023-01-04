@@ -1,6 +1,12 @@
 # Changelog
 
 ## [Unreleased]
+### Added
+- Multi schema loader
+
+### Changed
+- Type with fields will combine fields from callback and predefined fields
+- Webonyx schema transformer clears cache after transforming schema 
 
 ## [0.1.0] - 2022-10-24
 ### Added
