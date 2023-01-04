@@ -46,7 +46,7 @@ final class MultiSchemaLoader implements SchemaLoaderInterface
             return $a;
         }
 
-        if (!$a && $b) {
+        if (!$a) {
             return $b;
         }
 
