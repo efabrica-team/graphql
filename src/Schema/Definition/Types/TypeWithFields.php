@@ -19,16 +19,16 @@ abstract class TypeWithFields extends Type
      */
     public function getFields(): array
     {
-        if ($this->fieldsCallback === null || count($this->fields)) {
+        if ($this->fieldsCallback === null) {
             return $this->fields;
         }
 
-        $this->fields = [];
+        $fields = [];
         foreach (call_user_func($this->fieldsCallback) as $field) {
-            $this->fields[$field->getName()] = $field;
+            $fields[$field->getName()] = $field;
         }
 
-        return $this->fields;
+        return array_merge($fields, $this->fields);
     }
 
     public function addField(Field $field): self

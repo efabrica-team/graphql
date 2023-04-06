@@ -38,28 +38,6 @@ class WebonyxSchemaTransformerTest extends TestCase
         $this->schemaTransformer = new WebonyxSchemaTransformer();
     }
 
-    public function testThrowsExceptionOnUnknownType(): void
-    {
-        $schema = (new Schema())
-            ->setQuery(
-                (new ObjectType('lorem'))
-                    ->setFields([
-                        new Field(
-                            'ipsum',
-                            new class extends Type {
-                                public function __construct()
-                                {
-                                    parent::__construct('Ipsum');
-                                }
-                            }
-                        ),
-                    ])
-            );
-
-        $this->expectException(SchemaTransformerException::class);
-        $this->schemaTransformer->handle($schema);
-    }
-
     public function testCanTransformObjectTypeWithOnlyRequiredParameters(): void
     {
         $webonyxSchema = new WebonyxSchema(

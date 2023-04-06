@@ -20,7 +20,6 @@ use Efabrica\GraphQL\Schema\Definition\Types\Scalar\StringType;
 use Efabrica\GraphQL\Schema\Definition\Types\Type;
 use GraphQL\Type\Definition\EnumType as WebonyxEnumType;
 use GraphQL\Type\Definition\InputObjectType as WebonyxInputObjectType;
-use GraphQL\Type\Definition\NullableType as WebonyxNullableType;
 use GraphQL\Type\Definition\ObjectType as WebonyxObjectType;
 use GraphQL\Type\Definition\ResolveInfo as WebonyxResolveInfo;
 use GraphQL\Type\Definition\Type as WebonyxType;
@@ -42,6 +41,7 @@ final class WebonyxSchemaTransformer
         /** @var WebonyxObjectType $query */
         $query = $this->transformType($schema->getQuery());
         $schemaConfig->setQuery($query);
+        $this->types = [];
 
         return new WebonyxSchema($schemaConfig);
     }
@@ -186,8 +186,10 @@ final class WebonyxSchemaTransformer
 
     private function transformResolveInfo(WebonyxResolveInfo $webonyxResolveInfo): ResolveInfo
     {
+        /** @var array $fieldDefinitionConfig */
+        $fieldDefinitionConfig = $webonyxResolveInfo->fieldDefinition->config;
         return new ResolveInfo(
-            $webonyxResolveInfo->fieldDefinition->config['original_field'],
+            $fieldDefinitionConfig['original_field'],
             $webonyxResolveInfo->path,
             $webonyxResolveInfo->getFieldSelection(),
         );

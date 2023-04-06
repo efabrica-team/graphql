@@ -2,9 +2,10 @@
 
 namespace Efabrica\GraphQL\Exceptions;
 
-use Exception;
-
-class ResolverException extends Exception
+class ResolverException extends GraphQLException
 {
-    //
+    public function getCategory(): string
+    {
+        return 'resolver';
+    }
 }
