@@ -1,6 +1,8 @@
 # Changelog
 
 ## [Unreleased]
+
+## [0.2.0] - 2023-04-06
 ### Added
 - Multi schema loader
 - Ability to add additional data to response
@@ -19,5 +21,6 @@
 - Webonyx driver
 - Webonyx schema transformer
 
-[Unreleased]: https://github.com/efabrica-team/graphql/compare/0.1.0...main
+[Unreleased]: https://github.com/efabrica-team/graphql/compare/0.2.0...main
+[0.2.0]: https://github.com/efabrica-team/graphql/compare/0.1.0...0.2.0
 [0.1.0]: https://github.com/efabrica-team/graphql/compare/0.0.0...0.1.0
