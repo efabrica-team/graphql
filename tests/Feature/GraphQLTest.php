@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use Efabrica\GraphQL\Drivers\WebonyxDriver;
 use Efabrica\GraphQL\GraphQL;
+use Efabrica\GraphQL\Helpers\AdditionalResponseData;
 use Efabrica\GraphQL\Resolvers\ResolverInterface;
 use Efabrica\GraphQL\Schema\Definition\Arguments\FieldArgument;
 use Efabrica\GraphQL\Schema\Definition\Fields\Field;
@@ -139,7 +140,7 @@ class GraphQLTest extends TestCase
     private function createServer(Schema $schema): GraphQL
     {
         $schemaLoader = new DefinitionSchemaLoader($schema);
-        $driver = new WebonyxDriver($schemaLoader);
+        $driver = new WebonyxDriver($schemaLoader, new AdditionalResponseData());
         return new GraphQL($driver);
     }
 }

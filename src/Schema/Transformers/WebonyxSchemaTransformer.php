@@ -186,8 +186,10 @@ final class WebonyxSchemaTransformer
 
     private function transformResolveInfo(WebonyxResolveInfo $webonyxResolveInfo): ResolveInfo
     {
+        /** @var array $fieldDefinitionConfig */
+        $fieldDefinitionConfig = $webonyxResolveInfo->fieldDefinition->config;
         return new ResolveInfo(
-            $webonyxResolveInfo->fieldDefinition->config['original_field'],
+            $fieldDefinitionConfig['original_field'],
             $webonyxResolveInfo->path,
             $webonyxResolveInfo->getFieldSelection(),
         );
