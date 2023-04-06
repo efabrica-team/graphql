@@ -12,8 +12,8 @@ class OrderArgument extends FieldArgument
 {
     public const NAME = 'order';
 
-    public const FIELD_KEY = 'key';
-    public const FIELD_ORDER = 'order';
+    public const FIELD_KEY = 'column';
+    public const FIELD_ORDER = 'sort_order';
 
     public function __construct()
     {
