@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [0.2.1] - 2023-07-03
+### Added
+- Null and NotNull where comparators
+
 ## [0.2.0] - 2023-04-06
 ### Added
 - Multi schema loader
@@ -21,6 +25,7 @@
 - Webonyx driver
 - Webonyx schema transformer
 
-[Unreleased]: https://github.com/efabrica-team/graphql/compare/0.2.0...main
+[Unreleased]: https://github.com/efabrica-team/graphql/compare/0.2.1...main
+[0.2.1]: https://github.com/efabrica-team/graphql/compare/0.2.0...0.2.1
 [0.2.0]: https://github.com/efabrica-team/graphql/compare/0.1.0...0.2.0
 [0.1.0]: https://github.com/efabrica-team/graphql/compare/0.0.0...0.1.0
