@@ -1,4 +1,4 @@
-# GraphQL (work in progress)
+# GraphQL
 
 This package is using [webonyx/graphql-php](https://github.com/webonyx/graphql-php) as GraphQL driver and is meant to be
 used as automatic schema definition loader. For better understandation please reffer
