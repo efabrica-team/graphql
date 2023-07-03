@@ -27,6 +27,10 @@ class WhereComparatorEnum extends EnumType
 
     public const NOT_LIKE = 'NOT_LIKE';
 
+    public const NULL = 'NULL';
+
+    public const NOT_NULL = 'NOT_NULL';
+
     public function __construct()
     {
         parent::__construct('where_comparator');
@@ -41,6 +45,8 @@ class WhereComparatorEnum extends EnumType
             new Value(self::MORE_THAN_EQUAL, self::MORE_THAN_EQUAL),
             new Value(self::LIKE, self::LIKE),
             new Value(self::NOT_LIKE, self::NOT_LIKE),
+            new Value(self::NULL, self::NULL),
+            new Value(self::NOT_NULL, self::NOT_NULL),
         ]);
     }
 }

@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [0.2.1] - 2023-07-03
+### Added
+- Null and NotNull where comparators
+
 ## [0.2.0] - 2023-04-06
 ### Added
 - Multi schema loader
