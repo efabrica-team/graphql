@@ -2,18 +2,18 @@
 
 namespace Efabrica\GraphQL\Schema\Custom\Fields;
 
-use Efabrica\GraphQL\Schema\Custom\Types\WhereType;
+use Efabrica\GraphQL\Schema\Custom\Types\HavingType;
 use Efabrica\GraphQL\Schema\Definition\Fields\InputObjectField;
 
-class WhereAndField extends InputObjectField
+class HavingAndField extends InputObjectField
 {
-    public const NAME = 'where';
+    public const NAME = 'having';
 
     public function __construct()
     {
         parent::__construct(
             self::NAME,
-            new WhereType()
+            new HavingType()
         );
 
         $this->setMulti()

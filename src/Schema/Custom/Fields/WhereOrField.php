@@ -16,8 +16,7 @@ class WhereOrField extends InputObjectField
             new WhereType()
         );
 
-        $this->setName(self::NAME)
-            ->setMulti()
+        $this->setMulti()
             ->setNullable();
     }
 }

@@ -2,24 +2,24 @@
 
 namespace Efabrica\GraphQL\Schema\Custom\Fields;
 
+use Efabrica\GraphQL\Schema\Custom\Types\GroupType;
 use Efabrica\GraphQL\Schema\Definition\Fields\InputObjectField;
-use Efabrica\GraphQL\Schema\Definition\Types\InputObjectType;
-use Efabrica\GraphQL\Schema\Definition\Types\Scalar\StringType;
 
 class GroupField extends InputObjectField
 {
     public const NAME = 'group';
 
-    public const FIELD_COLUMN = 'column';
+    /**
+     * TODO: remove in 0.3.0
+     * @deprecated Use GroupType::FIELD_COLUMN instead
+     */
+    public const FIELD_COLUMN = GroupType::FIELD_COLUMN;
 
     public function __construct()
     {
         parent::__construct(
             self::NAME,
-            (new InputObjectType('group_type'))
-                ->setFields([
-                    new InputObjectField(self::FIELD_COLUMN, new StringType()),
-                ])
+            new GroupType()
         );
         $this->setMulti()
             ->setNullable();
