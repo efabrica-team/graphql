@@ -4,6 +4,7 @@
 ### Added
 - Having types and fields
 - GroupType instead of anonymous declaration in GroupField
+- UnionType
 
 ### Changed
 - Depracated GroupField::FIELD_COLUMN constant, use GroupType::FIELD_COLUMN instead
