@@ -3,6 +3,8 @@
 namespace Efabrica\GraphQL\Schema\Custom\Arguments;
 
 use Efabrica\GraphQL\Schema\Custom\Fields\GroupField;
+use Efabrica\GraphQL\Schema\Custom\Fields\HavingAndField;
+use Efabrica\GraphQL\Schema\Custom\Fields\HavingOrField;
 use Efabrica\GraphQL\Schema\Custom\Fields\WhereAndField;
 use Efabrica\GraphQL\Schema\Custom\Fields\WhereOrField;
 use Efabrica\GraphQL\Schema\Definition\Arguments\FieldArgument;
@@ -20,6 +22,8 @@ class ConditionsArgument extends FieldArgument
                 ->setFields([
                     new WhereAndField(),
                     new WhereOrField(),
+                    new HavingAndField(),
+                    new HavingOrField(),
                     new GroupField(),
                 ])
         );

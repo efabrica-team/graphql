@@ -2,6 +2,15 @@
 
 ## [Unreleased]
 
+## [0.2.2] - 2024-01-26
+### Added
+- Having types and fields
+- GroupType instead of anonymous declaration in GroupField
+- UnionType
+
+### Changed
+- Depracated GroupField::FIELD_COLUMN constant, use GroupType::FIELD_COLUMN instead
+
 ## [0.2.1] - 2023-07-03
 ### Added
 - Null and NotNull where comparators
@@ -25,7 +34,8 @@
 - Webonyx driver
 - Webonyx schema transformer
 
-[Unreleased]: https://github.com/efabrica-team/graphql/compare/0.2.1...main
+[Unreleased]: https://github.com/efabrica-team/graphql/compare/0.2.2...main
+[0.2.2]: https://github.com/efabrica-team/graphql/compare/0.2.1...0.2.2
 [0.2.1]: https://github.com/efabrica-team/graphql/compare/0.2.0...0.2.1
 [0.2.0]: https://github.com/efabrica-team/graphql/compare/0.1.0...0.2.0
 [0.1.0]: https://github.com/efabrica-team/graphql/compare/0.0.0...0.1.0

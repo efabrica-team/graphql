@@ -18,11 +18,13 @@ use Efabrica\GraphQL\Schema\Definition\Types\Scalar\IntType;
 use Efabrica\GraphQL\Schema\Definition\Types\Scalar\ScalarType;
 use Efabrica\GraphQL\Schema\Definition\Types\Scalar\StringType;
 use Efabrica\GraphQL\Schema\Definition\Types\Type;
+use Efabrica\GraphQL\Schema\Definition\Types\UnionType;
 use GraphQL\Type\Definition\EnumType as WebonyxEnumType;
 use GraphQL\Type\Definition\InputObjectType as WebonyxInputObjectType;
 use GraphQL\Type\Definition\ObjectType as WebonyxObjectType;
 use GraphQL\Type\Definition\ResolveInfo as WebonyxResolveInfo;
 use GraphQL\Type\Definition\Type as WebonyxType;
+use GraphQL\Type\Definition\UnionType as WebonyxUnionType;
 use GraphQL\Type\Schema as WebonyxSchema;
 use GraphQL\Type\SchemaConfig as WebonyxSchemaConfig;
 use Throwable;
@@ -88,6 +90,25 @@ final class WebonyxSchemaTransformer
                 'name' => $type->getName(),
                 'description' => $type->getDescription(),
                 'values' => $values,
+            ]);
+        } elseif ($type instanceof UnionType) {
+            $transformedType = new WebonyxUnionType([
+                'name' => $type->getName(),
+                'description' => $type->getDescription(),
+                'types' => function () use ($type) {
+                    $objectTypes = [];
+                    foreach ($type->getObjectTypes() as $objectType) {
+                        $objectTypes[] = $this->transformType($objectType);
+                    }
+                    return $objectTypes;
+                },
+                'resolveType' => function($value) use ($type): WebonyxObjectType {
+                    $objectType = $this->transformType(call_user_func($type->getResolveType(), $value));
+                    if (!$objectType instanceof WebonyxObjectType) {
+                        throw new SchemaTransformerException('Union resolveType must be instance of "' . WebonyxObjectType::class . '".');
+                    }
+                    return $objectType;
+                },
             ]);
         } elseif ($type instanceof InputObjectType) {
             $transformedType = new WebonyxInputObjectType([
