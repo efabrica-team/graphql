@@ -1,6 +1,8 @@
 # Changelog
 
 ## [Unreleased]
+
+## [0.2.2] - 2024-01-26
 ### Added
 - Having types and fields
 - GroupType instead of anonymous declaration in GroupField
