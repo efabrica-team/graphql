@@ -1,6 +1,8 @@
 # Changelog
 
 ## [Unreleased]
+### Added
+- Allow non-nullable field argument
 
 ## [0.2.2] - 2024-01-26
 ### Added

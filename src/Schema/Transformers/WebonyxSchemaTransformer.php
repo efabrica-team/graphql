@@ -190,6 +190,10 @@ final class WebonyxSchemaTransformer
             $argumentType = WebonyxType::listOf($argumentType);
         }
 
+        if (!$fieldArgument->isNullable()) {
+            $argumentType = WebonyxType::nonNull($argumentType);
+        }
+
         $argumentResult = [
             'name' => $fieldArgument->getName(),
             'type' => $argumentType,

@@ -22,6 +22,8 @@ class FieldArgument
     protected bool $isDefaultValueSet = false;
 
     protected bool $multi = false;
+    
+    protected bool $nullable = true;
 
     public function __construct(string $name, Type $type)
     {
@@ -90,6 +92,23 @@ class FieldArgument
     public function setMulti(bool $multi = true): self
     {
         $this->multi = $multi;
+        return $this;
+    }
+
+    public function isNullable(): bool
+    {
+        return $this->nullable;
+    }
+
+    public function setNullable(bool $nullable = true): FieldArgument
+    {
+        $this->nullable = $nullable;
+        return $this;
+    }
+
+    public function setNonNullable(bool $nonNullable = true): FieldArgument
+    {
+        $this->nullable = !$nonNullable;
         return $this;
     }
 }
