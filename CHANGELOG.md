@@ -1,6 +1,8 @@
 # Changelog
 
 ## [Unreleased]
+### Fixed
+- PHP 8.4 compatibility: explicit nullable parameter types in `GraphQLException::__construct()` (implicit nullable is deprecated since PHP 8.4)
 
 ## [0.2.3] - 2024-02-28
 ### Added
